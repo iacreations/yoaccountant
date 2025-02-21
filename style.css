@@ -360,7 +360,7 @@ overflow: hidden;
 }
 /* ------------------------------------------------------------------------------------------ */
 
-@media (min-width: 400px) and (max-width: 1000px) {
+@media (min-width: 400px) and (max-width: 1080px) {
   /* Styles for screens between 600px and 900px */
   
   /* navbar */
