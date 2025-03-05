@@ -1,0 +1,692 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --white-color: #fff;
+  --blue-color: #39B54B;
+  --grey-color: #707070;
+  --grey-color-light: #aaa;
+}
+body {
+  background-color: #dffee3;
+  transition: all 0.5s ease;
+}
+body.dark {
+  background-color: #333;
+}
+body.dark {
+  --white-color: #333;
+  --blue-color: #fff;
+  --grey-color: #f2f2f2;
+  --grey-color-light: #aaa;
+}
+
+/* navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  z-index: 1000;
+  box-shadow: 0 0 2px var(--grey-color-light);
+}
+.logo_item {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--blue-color);
+}
+.navbar img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.search_bar {
+  height: 47px;
+  max-width: 430px;
+  width: 100%;
+}
+.search_bar input {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  font-size: 18px;
+  outline: none;
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: 1px solid var(--grey-color-light);
+  padding: 0 20px;
+}
+.navbar_content {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+.navbar_content i {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--grey-color);
+}
+
+/* sidebar */
+.sidebar {
+  background-color: var(--white-color);
+  width: 260px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 80px 20px;
+  z-index: 100;
+  overflow-y: scroll;
+  box-shadow: 0 0 1px var(--grey-color-light);
+  transition: all 0.5s ease;
+}
+.sidebar.close {
+  padding: 60px 0;
+  width: 80px;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.menu_content {
+  position: relative;
+}
+.menu_title {
+  margin: 15px 0;
+  padding: 0 20px;
+  font-size: 18px;
+}
+.sidebar.close .menu_title {
+  padding: 6px 30px;
+}
+.menu_title::before {
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.menu_dahsboard::before {
+  content: "Dashboard";
+}
+.menu_editor::before {
+  content: "Menu";
+}
+.menu_setting::before {
+  content: "Setting";
+}
+.sidebar.close .menu_title::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 18px;
+  border-radius: 12px;
+  background: var(--grey-color-light);
+}
+.menu_items {
+  padding: 0;
+  list-style: none;
+}
+.navlink_icon {
+  position: relative;
+  font-size: 22px;
+  min-width: 50px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+}
+.navlink_icon::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 100px);
+  left: -20px;
+}
+.navlink_icon:hover {
+  background: var(--blue-color);
+}
+.sidebar .nav_link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.sidebar.close .navlink {
+  display: none;
+}
+.nav_link:hover {
+  color: var(--white-color);
+  background: var(--blue-color);
+}
+.sidebar.close .nav_link:hover {
+  background: var(--white-color);
+}
+.submenu_item {
+  cursor: pointer;
+}
+.submenu {
+  display: none;
+}
+.submenu_item .arrow-left {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  margin-right: auto;
+}
+.sidebar.close .submenu {
+  display: none;
+}
+.show_submenu ~ .submenu {
+  display: block;
+}
+.show_submenu .arrow-left {
+  transform: rotate(90deg);
+}
+.submenu .sublink {
+  padding: 15px 15px 15px 52px;
+}
+.bottom_content {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 260px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.bottom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  justify-content: space-around;
+  padding: 18px 0;
+  text-align: center;
+  width: 100%;
+  color: var(--grey-color);
+  border-top: 1px solid var(--grey-color-light);
+  background-color: var(--white-color);
+}
+.bottom i {
+  font-size: 20px;
+}
+.bottom span {
+  font-size: 18px;
+}
+.sidebar.close .bottom_content {
+  width: 50px;
+  left: 15px;
+}
+.sidebar.close .bottom span {
+  display: none;
+}
+.sidebar.hoverable .collapse_sidebar {
+  display: none;
+}
+#sidebarOpen {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #sidebarOpen {
+    font-size: 25px;
+    display: block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: var(--grey-color);
+  }
+  .sidebar.close {
+    left: -100%;
+  }
+  .search_bar {
+    display: none;
+  }
+  .sidebar.close .bottom_content {
+    left: -100%;
+  }
+}
+
+.action {
+position: fixed;
+top: 10%;
+width: 85%;
+height: 10%;
+right: 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 15px 30px;
+z-index: 1000;
+place-items: center;
+overflow: hidden;
+}
+
+.button {
+  display: flex;
+  height: 3.5em;
+  padding: 0%;
+  background-color: #39B54B;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(7, 142, 36);
+}
+
+.button:active {
+  background-color: #5df874;
+  transform: scale(.95);
+  text-emphasis-color: black;
+}
+
+.button_text,
+.button_icon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+  color: #dffee3;
+}
+
+.button_icon {
+  font-size: 1.5em;
+}
+
+.main_body {
+position: fixed;
+top: 10%;
+width: 85%;
+height: 90%;
+right: 0;
+display: flex;
+position: absolute;
+justify-content: space-between;
+padding: 15px 30px;
+z-index: 1000;
+place-items: center;
+overflow: hidden;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  width: 100%;
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: #009879;
+}
+/* ------------------------------------------------------------------------------------------ */
+
+@media (max-width: 1000px) {
+  /* Styles for screens between 600px and 900px */
+  
+  /* navbar */
+  .navbar {
+    padding: 7px 15px;
+    z-index: 1000;
+  }
+  .logo_item {
+    column-gap: 10px;
+    font-size: 22px;
+  }
+
+  .navbar_content {
+    column-gap: 10px;
+  }
+
+  /* sidebar */
+  .sidebar {
+    width: 180px;
+    padding: 40px 10px;
+  }
+  .menu_title {
+    margin: 15px 0;
+    padding: 0 20px;
+    font-size: 14px;
+  }  
+  .action {
+  top: 4%;
+  width: 65%;
+  height: 10%;
+  padding: 7px 15px;
+  font-size: 8px;
+  }
+  
+  .button {
+    height: 2em;
+    width: 54px;
+  }
+  
+  .button_text,
+  .button_icon {
+    padding: 2px;
+    font-size: 6px;
+    justify-content: center;
+  }
+  
+  .button_icon {
+    font-size: 0.8em;
+  }
+  
+  .main_body {
+  top: 3%;
+  width: 65%;
+  height: 90%;
+  right: 0;
+  padding: 7px 15px;
+  }
+  
+  .content-table {
+    font-size: 0.6em;
+  }
+  
+  
+  .content-table th,
+  .content-table td {
+    padding: 4px;
+    width: 25%;
+  }
+}
+
+#page {
+  background-color: #009879;
+  color: #dddddd;
+  border-radius: 12px;
+}
+
+.tab-container {
+  width: 100%;
+  height: 80%;
+  background-color: white;
+  display: flex;
+  position: relative;
+}
+
+.tab-container input {
+  display: none;
+
+}
+.tab-name {
+  color: white;
+  height: 45px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #333;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+input:checked + label .tab-name {
+  background-color: #39B54B;
+  color: #333;
+  font-size: 18px;
+  font-weight: 800;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tab-content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  opacity: 0;
+  z-index: 0;
+}
+
+input:checked + label .tab-content {
+  opacity: 1;
+  z-index: 1;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(3, 200px); /* 3 columns, each 200px wide */
+  grid-template-rows: repeat(2, 200px); /* 2 rows, each 200px high */
+  gap: 40px; /* 40px gap between the grid items */
+}
+
+.things {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b4f2bd; /* Background color */
+  border-radius: 8px; /* Optional: adds rounded corners */
+  width: 100%; /* Ensures the div takes up the full width of the grid cell */
+  height: 100%; /* Ensures the div takes up the full height of the grid cell */
+}
+
+.things i {
+  font-size: 100px; /* Makes the icon take up 100px of the space inside the container */
+}
+
+#Overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
+  gap: 20px; /* Space between grid items */
+  background-color: #b4f2bd; /* Background color */
+  width: 1500px; /* Makes the grid take up the full width of its parent */
+  height: 600px; /* Makes the grid take up the full height of its parent */
+  padding: 20px; /* Optional padding around the grid */
+  box-sizing: border-box; /* Ensures padding is included in the total size */
+}
+
+#Overview > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* White background for each box */
+  border-radius: 8px; /* Optional: adds rounded corners */
+  font-size: 16px; /* Font size for the text */
+  padding: 10px; /* Padding inside each box */
+  box-sizing: border-box; /* Ensures padding is included in the total size */
+}
+
+#Account-balance {
+  grid-column: span 1; /* Makes "Bank Account Balance" span across 2 columns */
+  grid-area: span 2;
+}
+
+#Sales-overview {
+  grid-column: span 1;
+}
+
+#Expenses-overview {
+  grid-column: span 1;
+}
+
+#Invoices {
+  grid-column: span 1;
+}
+
+#Outstanding-bills {
+  grid-column: span 1;
+}
+
+#Profit-loss {
+  grid-column: span 3; /* Makes "Profit and Loss" span across 2 columns */
+}
+
+/* Container for the 3 columns */
+.todo-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 20px; /* 20px gap between columns */
+  width: 80%; /* Set the container width */
+  background-color: #ffffff; /* White background for the whole container */
+  padding: 20px; /* Padding inside the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a slight elevation */
+}
+/* Style for each column */
+.todo-column {
+  background-color: #e0f7fa; /* Light blue background for columns */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header style for each column */
+.todo-column h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #00796b; /* Darker shade for the header text */
+}
+
+/* Style for the task list */
+ul {
+  list-style-type: none; /* Remove bullet points */
+  padding-left: 0;
+}/* Style for the task list */
+ul {
+  list-style-type: none; /* Remove bullet points */
+  padding-left: 0;
+}
+
+/* Style for individual task items */
+.todo-column ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: #ffffff; /* White background for each task */
+  margin-bottom: 10px; /* Space between tasks */
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for task items */
+}
+
+/* Icon style (Boxicons) */
+.todo-column i {
+  font-size: 18px;
+  color: #00796b; /* Darker green for the icons */
+  cursor: pointer;
+}
+
+/* Hover effect for tasks */
+ul li:hover {
+  background-color: #c8e6c9; /* Light green background on hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Container for the sales overview */
+.sales-overview {
+  display: grid;               /* Enables CSS Grid layout */
+  grid-template-columns: repeat(3, 1fr);  /* 3 equal-width columns */
+  grid-template-rows: repeat(3, auto);    /* 3 rows with auto height */
+  gap: 5px;                    /* Adds 5px gap between items */
+  padding: 5px;                /* Adds padding around the grid container */
+  background-color: #ffffff;   /* White background for the container */
+  border-radius: 8px;          /* Rounded corners for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 1540px;
+  height: 600px;
+}
+
+/* Common styling for each grid item */
+.sales-overview > div {
+  display: flex;
+  justify-content: center;     /* Centers the content horizontally */
+  align-items: center;         /* Centers the content vertically */
+  background-color: #b4f2bd;   /* Green background */
+  color: #000;              /* White text */
+  font-size: 18px;
+  border-radius: 8px;          /* Rounded corners for each item */
+  padding: 10px;               /* Adds padding inside each grid item */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for each item */
+}
+
+/* Make 'ALL SALES' span across 3 rows */
+.all-sales {
+  grid-row: span 3;            /* Makes 'ALL SALES' span across all 3 rows */
+  grid-column: span 3;         /* Optional: makes 'ALL SALES' take up all 3 columns */
+}
+
+/* Container styling */
+.sales-activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Automatically adjusts based on available space */
+  gap: 15px;  /* 15px gap between grid items */
+  padding: 20px;
+  background-color: #ffffff; /* White background */
+  border-radius: 10px;  /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Box shadow for elevation */
+  width: 1540px;  /* Width of the container */
+  max-width: 1700px; /* Max width to prevent it from getting too large */
+}
+
+/* Common styling for each item */
+.sales-activities div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5df874;  /* Green background */
+  color: #000;  /* black text */
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for items */
+  text-align: center;
+  transition: background-color 0.3s ease;  /* Smooth background color transition */
+}
+
+/* Hover effect for each item */
+.sales-activities div:hover {
+  background-color: #4caf50;  /* Darker green on hover */
+  color: white;
+}
+
+/* Responsiveness: adjusts grid layout on smaller screens */
+@media (max-width: 768px) {
+  .sales-activities {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller grid items on smaller screens */
+  }
+}
