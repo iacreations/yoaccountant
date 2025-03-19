@@ -1,0 +1,172 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+
+.logo_item {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #39B54B;
+  gap: 10px;
+  font-size: 22px;
+}
+
+.logo_item img {
+  height: 35px;
+}
+
+.search_bar input {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  width: 250px;
+}
+
+.navbar_content i {
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  background: #fff;
+  width: 240px;
+  height: calc(100% - 70px);
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.sidebar .nav_link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar .nav_link:hover {
+  background: #39B54B;
+  color: #fff;
+}
+
+/* Main Area */
+.action {
+  margin-left: 260px;
+  padding: 100px 30px 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.action h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Task Board Styling */
+.todo-container {
+  margin-left: 260px;
+  padding: 0 30px 30px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.todo-column {
+  background: #fff;
+  flex: 1 1 300px;
+  min-height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-column h2 {
+  font-size: 20px;
+  color: #39B54B;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.todo-column ul {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.todo-column li {
+  background: #f4f6f8;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.todo-column li:hover {
+  background: #e1f5e1;
+}
+
+.todo-column i {
+  color: #39B54B;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .sidebar {
+      position: relative;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+      height: auto;
+      padding: 10px;
+  }
+  .action, .todo-container {
+      margin-left: 0;
+      padding: 20px;
+  }
+  .todo-container {
+      flex-direction: column;
+  }
+}
