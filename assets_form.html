@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Asset Register Form</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body { background: #f4f6f8; display: flex; justify-content: center; padding: 40px; }
+    .form-container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 50%; }
+    .form-container h2 { text-align: center; margin-bottom: 20px; color: #39B54B; }
+    .section-title { margin-top: 20px; font-size: 18px; font-weight: 600; color: #333; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    .form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
+    .form-group label { margin-bottom: 5px; font-weight: 500; color: #333; }
+    .form-group input, .form-group select, .form-group textarea { padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; transition: border 0.3s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #39B54B; outline: none; }
+    .footer-buttons { display: flex; justify-content: space-between; margin-top: 30px; }
+    .footer-buttons .btn { padding: 12px 20px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 15px; transition: background 0.3s; }
+    .btn-cancel { background: #e0e0e0; color: #333; }
+    .btn-cancel:hover { background: #ccc; }
+    .btn-primary { background: #39B54B; color: #fff; }
+    .btn-primary:hover { background: #2e8b3f; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Fixed Asset Register</h2>
+    <form>
+      <!-- General Information -->
+      <div class="section-title">General Information</div>
+      <div class="form-group"><label>Asset Name *</label><input type="text" required></div>
+      <div class="form-group"><label>Asset ID / Tag Number *</label><input type="text" required></div>
+      <div class="form-group"><label>Asset Category *</label><input type="text" required></div>
+      <div class="form-group"><label>Description</label><input type="text"></div>
+      <div class="form-group"><label>Location / Department *</label><input type="text" required></div>
+      <div class="form-group"><label>Custodian / Responsible Person</label><input type="text"></div>
+      <div class="form-group"><label>Status *</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Active</option>
+          <option>Disposed</option>
+          <option>Written-Off</option>
+        </select>
+      </div>
+
+      <!-- Purchase Information -->
+      <div class="section-title">Purchase Information</div>
+      <div class="form-group"><label>Purchase Price *</label><input type="number" required></div>
+      <div class="form-group"><label>Purchase Date *</label><input type="date" required></div>
+      <div class="form-group"><label>Supplier / Vendor *</label><input type="text" required></div>
+      <div class="form-group"><label>Warranty Expiry Date</label><input type="date"></div>
+      <div class="form-group"><label>Funding Source</label><input type="text"></div>
+
+      <!-- Depreciation Details -->
+      <div class="section-title">Depreciation Details</div>
+      <div class="form-group"><label>Asset Life (Years) *</label><input type="number" required></div>
+      <div class="form-group"><label>Depreciation Method *</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Straight Line</option>
+          <option>Reducing Balance</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Residual Value</label><input type="number"></div>
+      <div class="form-group"><label>Accumulated Depreciation</label><input type="number"></div>
+      <div class="form-group"><label>Remaining Value</label><input type="number"></div>
+
+      <!-- Accounting Info -->
+      <div class="section-title">Accounting Information</div>
+      <div class="form-group"><label>Asset Account *</label><input type="text" required></div>
+      <div class="form-group"><label>Capitalization Date *</label><input type="date" required></div>
+      <div class="form-group"><label>Cost Center / Business Unit</label><input type="text"></div>
+
+      <!-- Additional Details -->
+      <div class="section-title">Additional Details</div>
+      <div class="form-group"><label>Asset Condition</label><input type="text"></div>
+      <div class="form-group"><label>Maintenance Schedule</label><input type="text"></div>
+      <div class="form-group"><label>Insurance Details</label><input type="text"></div>
+      <div class="form-group"><label>Notes / Remarks</label><textarea rows="3"></textarea></div>
+      <div class="form-group"><label>Attachments</label><input type="file" multiple></div>
+
+      <!-- Footer Buttons -->
+      <div class="footer-buttons">,
+        <a href="./Assets.html">
+          <button type="button" class="btn btn-cancel">Cancel</button>
+        </a>
+        
+        <div style="display: flex; gap: 10px;">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary">Save & Close</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>

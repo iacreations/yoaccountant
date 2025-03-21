@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Client</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+.form-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 40%;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #39B54B;
+}
+
+.section-title {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: #39B54B;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #39B54B;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #2a8b3b;
+}
+
+  .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .footer-buttons .left-btn,
+  .footer-buttons .right-btns button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+  }
+  .footer-buttons .left-btn {
+    background: #e0e0e0;
+    color: #333;
+  }
+  .footer-buttons .left-btn:hover {
+    background: #ccc;
+  }
+  .footer-buttons .right-btns {
+    display: flex;
+    gap: 10px;
+  }
+  .footer-buttons .right-btns button {
+    background: #39B54B;
+    color: #fff;
+  }
+  .footer-buttons .right-btns button:hover {
+    background: #2e8b3f;
+  }
+
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add New Client</h2>
+    <form>
+      <!-- Company Info -->
+      <div class="section-title">Company Info</div>
+      <div class="form-group">
+        <label for="logo">Company Logo</label>
+        <input type="file" id="logo" name="logo" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="clientId">Client ID</label>
+        <input type="text" id="clientId" name="clientId">
+      </div>
+      <div class="form-group">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" name="companyName">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address">
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country">
+      </div>
+
+      <!-- Contact Person -->
+      <div class="section-title">Contact Person</div>
+      <div class="form-group">
+        <label for="contactName">Contact Name</label>
+        <input type="text" id="contactName" name="contactName">
+      </div>
+      <div class="form-group">
+        <label for="position">Position</label>
+        <input type="text" id="position" name="position">
+      </div>
+      <div class="form-group">
+        <label for="contactPhone">Contact Phone</label>
+        <input type="tel" id="contactPhone" name="contactPhone">
+      </div>
+      <div class="form-group">
+        <label for="contactEmail">Contact Email</label>
+        <input type="email" id="contactEmail" name="contactEmail">
+      </div>
+
+      <!-- Financial Details -->
+      <div class="section-title">Financial Details</div>
+      <div class="form-group">
+        <label for="vat">VAT / Tax ID</label>
+        <input type="text" id="vat" name="vat">
+      </div>
+      <div class="form-group">
+        <label for="creditLimit">Credit Limit</label>
+        <input type="text" id="creditLimit" name="creditLimit">
+      </div>
+      <div class="form-group">
+        <label for="paymentTerms">Payment Terms</label>
+        <input type="text" id="paymentTerms" name="paymentTerms">
+      </div>
+      <div class="form-group">
+        <label for="currency">Preferred Currency</label>
+        <input type="text" id="currency" name="currency">
+      </div>
+
+      <!-- Other Details -->
+      <div class="section-title">Other Details</div>
+      <div class="form-group">
+        <label for="industry">Industry / Sector</label>
+        <input type="text" id="industry" name="industry">
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+      <div class="footer-buttons">
+        <a href="./index.html">
+          <button type="button" class="left-btn">Cancel</button>
+        </a>
+        
+        <div class="right-btns">
+          <button type="submit">Save</button>
+          <button type="submit">Save & Close</button>
+        </div>
+      </div>
+      
+
+    </form>
+  </div>
+</body>
+</html>
