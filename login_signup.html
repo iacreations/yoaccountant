@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>YoAccountant | Auth</title>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -16,6 +16,7 @@
       height: 100vh;
       font-family: "Poppins", sans-serif;
     }
+
     .container {
       width: 400px;
       background: #fff;
@@ -24,25 +25,34 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       position: relative;
     }
+
     .logo {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
+
+    .logo img {
+      width: 100px;
+    }
+
     .tabs {
       display: flex;
       justify-content: space-around;
       margin-bottom: 20px;
     }
+
     .tabs span {
       cursor: pointer;
       font-weight: bold;
       color: #777;
       position: relative;
     }
+
     .tabs .active {
       color: #39B54B;
     }
+
     .tabs .active::after {
       content: '';
       width: 100%;
@@ -53,6 +63,7 @@
       left: 0;
       border-radius: 2px;
     }
+
     .input-group {
       display: flex;
       align-items: center;
@@ -62,77 +73,99 @@
       padding: 10px 15px;
       margin-bottom: 15px;
     }
+
     .input-group i {
       margin-right: 10px;
       color: #333;
     }
+
     .input-group input {
       border: none;
       background: transparent;
       outline: none;
       flex: 1;
     }
+
     .checkbox {
       display: flex;
       align-items: center;
       margin-bottom: 15px;
       font-size: 12px;
     }
+
     .checkbox input { margin-right: 5px; }
+
     .btn {
-      width: 100%;
+      width: 150px;
       background: #39B54B;
       color: #fff;
-      padding: 12px;
+      padding: 10px;
       border: none;
       border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
-      margin-bottom: 10px;
+      text-align: center;
+      font-size: 14px;
+      margin: 0 auto 10px auto;
+      display: block;
     }
+
     .divider {
       text-align: center;
       margin: 10px 0;
       font-size: 12px;
       color: #555;
     }
-    .google-btn {
-      width: 100%;
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+}
+
+    .social-btn {
       background: #fff;
       border: 1px solid #ccc;
-      padding: 10px;
+      padding: 8px 14px;
       border-radius: 30px;
       display: flex;
       align-items: center;
-      justify-content: center;
       cursor: pointer;
-      gap: 10px;
+      font-size: 13px;
+      gap: 6px;
     }
+
     .footer-link {
       text-align: center;
       font-size: 12px;
       margin-top: 15px;
     }
-    .footer-link a { color: #39B54B; text-decoration: none; font-weight: bold; }
+
+    .footer-link a {
+      color: #39B54B;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img src="./images/yo-logo.png" alt="YoAccountant" style="width: 50px;">
+      <img src="../images/yo-logo.png" alt="YoAccountant">
     </div>
+
     <div class="tabs">
       <span id="login-tab" class="active">Login</span>
       <span id="signup-tab">Sign up</span>        
-
-
     </div>
 
     <!-- Login Form -->
     <form id="login-form">
       <div class="input-group">
         <i class='bx bx-user'></i>
-        <input type="text" placeholder="Email or Phone number" required>
+        <input type="text" placeholder="Username, Email or Phone number" required>
       </div>
       <div class="input-group">
         <i class='bx bx-lock-alt'></i>
@@ -141,7 +174,9 @@
       <div class="checkbox">
         <input type="checkbox"> Remember me
       </div>
-      <a href="./Home.html" style="text-decoration: none;"><div class="btn">LOGIN</div></a>
+      <a href="./Home.html" style="text-decoration: none;">
+        <div class="btn">LOGIN</div>
+      </a>
       <div class="footer-link"><a href="#">Forgot your password?</a></div>
     </form>
 
@@ -168,28 +203,43 @@
         <input type="password" placeholder="Retype Password" required>
       </div>
       <div class="checkbox">
-        <input type="checkbox"> I agree to the terms of service and Privacy Policy
+        <input type="checkbox"> I agree to the terms of service and&nbsp; <a href="./privacy-policy.html" target="_blank" style="color: #39B54B; font-weight: bold;"> Privacy Policy</a>
       </div>
       <div class="btn">SIGN UP</div>
     </form>
 
-    <div class="divider">Or Sign up with</div>
-    <div class="google-btn">
-      <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google"> Google
+    <!-- OTP Form -->
+    <form id="otp-form" style="display: none;">
+      <div class="input-group">
+        <i class='bx bx-lock-alt'></i>
+        <input type="text" placeholder="Enter OTP" required>
+      </div>
+      <div class="btn">VERIFY OTP</div>
+      <div class="footer-link"><a href="#">Resend OTP</a></div>
+    </form>
+
+    <div class="divider">Or Sign in/up with</div>
+
+    <div class="social-buttons">
+      <div class="social-btn"><img src="https://img.icons8.com/color/16/000000/google-logo.png" /> Google</div>
+      <div class="social-btn"><img src="https://img.icons8.com/fluency/16/microsoft-outlook-2019.png" /> Outlook</div>
+      <div class="social-btn"><img src="https://img.icons8.com/color/16/yahoo.png" /> Yahoo</div>
     </div>
-  </div>
+    
 
   <script>
     const loginTab = document.getElementById('login-tab');
     const signupTab = document.getElementById('signup-tab');
     const loginForm = document.getElementById('login-form');
     const signupForm = document.getElementById('signup-form');
+    const otpForm = document.getElementById('otp-form');
 
     loginTab.onclick = () => {
       loginTab.classList.add('active');
       signupTab.classList.remove('active');
       loginForm.style.display = 'block';
       signupForm.style.display = 'none';
+      otpForm.style.display = 'none';
     };
 
     signupTab.onclick = () => {
@@ -197,7 +247,11 @@
       loginTab.classList.remove('active');
       signupForm.style.display = 'block';
       loginForm.style.display = 'none';
+      otpForm.style.display = 'none';
     };
+
+    // You can later show otpForm with JS when needed after signup
+    // otpForm.style.display = 'block';
   </script>
 </body>
 </html>
