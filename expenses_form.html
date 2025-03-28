@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Expense Entry Form</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: #f4f6f8;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 80%;
+      margin: auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .header .field {
+      flex: 1 1 30%;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .header label {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .header input, .header select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .section {
+      margin-top: 25px;
+    }
+    .section h3 {
+      cursor: pointer;
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: #fafafa;
+    }
+    .actions {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .memo {
+      margin-top: 20px;
+    }
+    .attachments {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px dashed #ccc;
+      text-align: center;
+      color: #777;
+      cursor: pointer;
+      position: relative;
+    }
+    .attachments input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .footer button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-cancel { background: #f5f5f5; }
+    .btn-primary { background: #39B54B; color: #fff; }
+    .btn-secondary { background: #333; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Fields -->
+    <div class="header">
+      <div class="field">
+        <label>Payee</label>
+        <input type="text" placeholder="Who did you pay?">
+      </div>
+      <div class="field">
+        <label>Payment Account</label>
+        <select><option>Select account</option></select>
+      </div>
+      <div class="field">
+        <label>Payment Date</label>
+        <input type="date">
+      </div>
+      <div class="field">
+        <label>Payment Method</label>
+        <select><option>Bank Transfer</option></select>
+      </div>
+      <div class="field">
+        <label>Ref No.</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Location</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <!-- Category Details -->
+    <div class="section">
+      <h3>Category Details</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Billable</th>
+              <th>Customer</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+              <td><input type="checkbox"></td>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <button class="btn-cancel">Add Line</button>
+        <button class="btn-cancel">Clear All</button>
+      </div>
+    </div>
+
+    <!-- Item Details -->
+    <div class="section">
+      <h3>Item Details</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product/Service</th>
+              <th>Description</th>
+              <th>Qty</th>
+              <th>Rate</th>
+              <th>Amount</th>
+              <th>Billable</th>
+              <th>Customer</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+              <td><input type="number"></td>
+              <td><input type="number"></td>
+              <td><input type="number"></td>
+              <td><input type="checkbox"></td>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <button class="btn-cancel">Add Line</button>
+        <button class="btn-cancel">Clear All</button>
+      </div>
+    </div>
+
+    <!-- Memo -->
+    <div class="memo">
+      <label>Memo</label>
+      <textarea rows="3" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;"></textarea>
+    </div>
+
+    <!-- Attachments -->
+    <div class="attachments">
+      <input type="file" multiple>
+      <i class='bx bx-upload' style="font-size: 30px;"></i>
+      <p>Drag/Drop files here or click to upload (Max size: 20MB)</p>
+    </div>
+
+    <!-- Footer Buttons -->
+    <div class="footer">
+      <div>
+        <a href="./Expenses.html">
+          <button class="btn-cancel">Cancel</button>
+        </a>
+        
+        <button class="btn-secondary">Print</button>
+        <button class="btn-secondary">Make Recurring</button>
+      </div>
+      <div>
+        <button class="btn-primary">Save</button>
+        <button class="btn-primary">Save & Close</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
