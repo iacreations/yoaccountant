@@ -4,145 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add New Client</title>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      background: #f4f6f8;
-      display: flex;
-      justify-content: center;
-      padding: 40px;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body { background: #f4f6f8; padding: 30px; }
     .form-container {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 1200px;
+      background: #fff; padding: 25px; border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 1100px; margin: auto;
+    }
+    h2 { text-align: center; color: #39B54B; margin-bottom: 30px; }
+
+    .section { margin-bottom: 20px; }
+    .collapsible-header {
+      cursor: pointer; background: #f1f1f1; padding: 10px;
+      border-radius: 4px; margin-bottom: 5px; font-weight: 600;
+      color: #39B54B; border: 1px solid #ddd;
+    }
+    .collapsible-content {
+      display: none; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;
+    }
+    .form-row {
+      display: flex; flex-wrap: wrap; gap: 20px;
+    }
+    .field {
+      flex: 1 1 30%; display: flex; flex-direction: column;
+    }
+    label { font-weight: 600; margin-bottom: 5px; }
+    input, select, textarea {
+      padding: 8px; border: 1px solid #ccc; border-radius: 4px;
     }
 
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #39B54B;
+    textarea { resize: vertical; }
+
+    .footer {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 30px; padding-top: 15px; border-top: 1px solid #e0e0e0;
     }
-
-    .section-wrapper {
-      background: #403939;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-}
-
-
-    .section-title {
-      margin-top: 30px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #333;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
+    .btn {
+      padding: 10px 20px; border: none; border-radius: 4px;
+      font-weight: bold; cursor: pointer;
     }
+    .btn-cancel { background: #f5f5f5; }
+    .btn-green { background: #39B54B; color: #fff; }
+    .btn-green:hover { background: #2e8b3f; }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    .dropdown {
+      position: relative; display: inline-block;
     }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
+    .dropdown-menu {
+      display: none; position: absolute; right: 0;
+      background: #fff; border: 1px solid #ccc;
+      border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 100; width: 160px;
     }
-
-    .form-group label {
-      margin-bottom: 5px;
-      font-weight: 500;
-      color: #333;
+    .dropdown-menu button {
+      width: 100%; padding: 10px 16px;
+      background: none; border: none;
+      text-align: left; cursor: pointer; white-space: nowrap;
     }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      padding: 10px 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: border 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: #39B54B;
-      outline: none;
-    }
-
-    .submit-btn {
-      padding: 12px 24px;
-      background: #39B54B;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 15px;
-      transition: background 0.3s;
-    }
-
-    .submit-btn:hover {
-      background: #2a8b3b;
-    }
-
-    .footer-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .footer-buttons .left-btn,
-    .footer-buttons .right-btns button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 15px;
-      transition: background 0.3s;
-    }
-
-    .footer-buttons .left-btn {
-      background: #e0e0e0;
-      color: #333;
-    }
-
-    .footer-buttons .left-btn:hover {
-      background: #ccc;
-    }
-
-    .footer-buttons .right-btns {
-      display: flex;
-      gap: 10px;
-    }
-
-    .footer-buttons .right-btns button {
-      background: #39B54B;
-      color: #fff;
-    }
-
-    .footer-buttons .right-btns button:hover {
-      background: #2e8b3f;
+    .dropdown:hover .dropdown-menu {
+      display: block;
     }
   </style>
 </head>
@@ -152,117 +73,129 @@
     <form>
 
       <!-- Company Info -->
-      <div class="section-title">Company Info</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="logo">Company Logo</label>
-          <input type="file" id="logo" name="logo" accept="image/*">
-        </div>
-        <div class="form-group">
-          <label for="companyName">Company Name <span style="color:red;">*</span></label>
-          <input type="text" id="companyName" name="companyName" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone <span style="color:red;">*</span></label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email <span style="color:red;">*</span></label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input type="text" id="address" name="address">
-        </div>
-        <div class="form-group">
-          <label for="country">Country</label>
-          <input type="text" id="country" name="country">
+      <div class="section">
+        <div class="collapsible-header">Company Information</div>
+        <div class="collapsible-content form-row">
+          <div class="field"><label>Company Logo</label><input type="file" accept="image/*"></div>
+          <div class="field"><label>Company Name <span style="color:red;">*</span></label><input type="text" required></div>
+          <div class="field"><label>Phone <span style="color:red;">*</span></label><input type="tel" required></div>
+          <div class="field"><label>Email <span style="color:red;">*</span></label><input type="email" required></div>
+          <div class="field"><label>Address <span style="color:red;">*</span></label><input type="text" required></div>
+          <div class="field"><label>Country <span style="color:red;">*</span></label><input type="text" required></div>
+          <div class="field"><label>Business Registration No.</label><input type="text"></div>
+          <div class="field"><label>Start Date of Business Operation</label><input type="date"></div>
         </div>
       </div>
 
       <!-- Contact Person -->
-      <div class="section-title">Contact Person</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="contactName">Contact Name</label>
-          <input type="text" id="contactName" name="contactName">
-        </div>
-        <div class="form-group">
-          <label for="position">Position</label>
-          <input type="text" id="position" name="position">
-        </div>
-        <div class="form-group">
-          <label for="contactPhone">Contact Phone</label>
-          <input type="tel" id="contactPhone" name="contactPhone">
-        </div>
-        <div class="form-group">
-          <label for="contactEmail">Contact Email</label>
-          <input type="email" id="contactEmail" name="contactEmail">
+      <div class="section">
+        <div class="collapsible-header">Contact Person</div>
+        <div class="collapsible-content form-row">
+          <div class="field"><label>Contact Name <span style="color:red;">*</span></label><input type="text" required></div>
+          <div class="field"><label>Position <span style="color:red;">*</span></label><input type="text" required></div>
+          <div class="field"><label>Contact Phone <span style="color:red;">*</span></label><input type="tel" required></div>
+          <div class="field"><label>Contact Email <span style="color:red;">*</span></label><input type="email" required></div>
         </div>
       </div>
 
       <!-- Financial Details -->
-      <div class="section-title">Financial Details</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="vat">VAT / Tax ID</label>
-          <input type="text" id="vat" name="vat">
-        </div>
-        <div class="form-group">
-          <label for="creditLimit">Credit Limit</label>
-          <input type="text" id="creditLimit" name="creditLimit">
-        </div>
-        <div class="form-group">
-          <label for="paymentTerms">Payment Terms</label>
-          <input type="text" id="paymentTerms" name="paymentTerms">
-        </div>
-        <div class="form-group">
-          <label for="currency">Preferred Currency</label>
-          <input type="text" id="currency" name="currency">
+      <div class="section">
+        <div class="collapsible-header">Financial Details</div>
+        <div class="collapsible-content form-row">
+          <div class="field"><label>VAT / Tax ID</label><input type="text"></div>
+          <div class="field"><label>Credit Limit</label><input type="text"></div>
+          <div class="field"><label>Payment Terms</label><input type="text"></div>
+          <div class="field">
+            <label>Preferred Currency <span style="color:red;">*</span></label>
+            <select required>
+              <option value="">Select Currency</option>
+              <option value="UGX">UGX</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
         </div>
       </div>
 
       <!-- Other Details -->
-      <div class="section-title">Other Details</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="industry">Industry / Sector <span style="color:red;">*</span></label>
-          <select id="industry" name="industry" required>
-            <option value="">Select Industry</option>
-            <option>Agriculture</option>
-            <option>Hospitality</option>
-            <option>Services</option>
-            <option>Non-profit (NGO)</option>
-            <option>Manufacturing</option>
-            <option>Hospital</option>
-            <option>Others</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="notes">Notes</label>
-          <textarea id="notes" name="notes" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="status">Status <span style="color:red;">*</span></label>
-          <select id="status" name="status" required>
-            <option value="">Select Status</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-          </select>
+      <div class="section">
+        <div class="collapsible-header">Other Details</div>
+        <div class="collapsible-content form-row">
+          <div class="field">
+            <label>Industry / Sector <span style="color:red;">*</span></label>
+            <select required>
+              <option value="">Select Industry</option>
+              <option>Consumer products</option>
+              <option>Energy and natural resources</option>
+              <option>Financial services</option>
+              <option>Healthcare</option>
+              <option>Industrial products</option>
+              <option>Not for profit</option>
+              <option>Individual private clients</option>
+              <option>Public sector</option>
+              <option>Real estate and construction</option>
+              <option>Services</option>
+              <option>Technology, media and telecommunications</option>
+              <option>Travel, tourism and leisure</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div class="field"><label>Status <span style="color:red;">*</span></label>
+            <select required>
+              <option value="">Select Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+          <div class="field" style="flex: 1 1 100%;">
+            <label>Notes</label>
+            <textarea rows="3"></textarea>
+          </div>
         </div>
       </div>
 
-      <!-- Footer Buttons -->
-      <div class="footer-buttons">
-        <a href="./index.html">
-          <button type="button" class="left-btn">Cancel</button>
-        </a>
-        <div class="right-btns">
-          <button type="submit">Save & New</button>
-          <button type="submit">Save & Close</button>
+      <!-- Footer -->
+      <div class="footer">
+        <a href="./index.html"><button type="button" class="btn btn-cancel">Cancel</button></a>
+        <div></div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-green">Save ▼</button>
+          <div class="dropdown-menu">
+            <button type="submit">Save</button>
+            <button type="submit">Save & New</button>
+            <button type="submit">Save & Close</button>
+          </div>
         </div>
       </div>
     </form>
   </div>
+
+  <script>
+    // Collapsible sections
+    document.querySelectorAll(".collapsible-header").forEach(header => {
+      header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        content.style.display = content.style.display === "flex" ? "none" : "flex";
+      });
+      header.nextElementSibling.style.display = "none"; // collapsed by default
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", e => {
+      if (!e.target.closest(".dropdown")) {
+        document.querySelectorAll(".dropdown-menu").forEach(menu => {
+          menu.style.display = "none";
+        });
+      }
+    });
+
+    // Toggle dropdown manually (for mobile support)
+    document.querySelectorAll(".dropdown > .btn").forEach(button => {
+      button.addEventListener("click", e => {
+        e.preventDefault();
+        const menu = button.nextElementSibling;
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
 </body>
 </html>
